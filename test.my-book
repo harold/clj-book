@@ -1,0 +1,23 @@
+# Header
+
+Stuff.
+
+<!---code:clojure-->
+(let [a 1
+      b 2
+      c 3]
+  (* (+ a b) c))
+<!---/code:clojure-->
+
+Other stuff.
+
+- Yet
+- Some
+- Other
+- Stuff
+
+<!---code:clojure-->
+(map - (range 10))
+<!---/code:clojure-->
+
+The End.
