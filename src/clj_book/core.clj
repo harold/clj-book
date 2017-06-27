@@ -4,7 +4,11 @@
 
 (defn render-code
   [code lang]
-  (let [result (pr-str (eval (read-string code)))]
+  (let [pbr (java.io.PushbackReader. (java.io.StringReader. code))
+        result (loop [result nil]
+                 (if-let [expr (read pbr nil nil)] ;; nil nil so don't throw on EOF
+                   (recur (eval expr))
+                   (pr-str result)))]
     (format "```%s\n%s\n;; => %s```" lang code result)))
 
 (defn my-book->md
